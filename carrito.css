@@ -1,0 +1,71 @@
+/* --- Estilos específicos para carrito.html --- */
+
+/* Contenedor principal */
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Selector de juegos y botón agregar */
+#selector-juegos, button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Botón agregar al carrito */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Lista del carrito */
+#carrito-lista {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#carrito-lista li {
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Total del carrito */
+#total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Botón de compra */
+#comprar-btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#comprar-btn:hover {
+    background-color: #e64a19;
+}
