@@ -1,0 +1,8 @@
+@mixin card-style {
+  background-color: $color-light;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: $box-shadow-default;
+  text-align: center;
+  padding-bottom: 10px;
+}
