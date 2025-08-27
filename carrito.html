@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stykes.css">
+  <title>Comprar Juego</title>
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="site-header__logo">MI TIENDA</p>
+  </header>
+
+  <main>
+    <h2>Selecciona un juego</h2>
+
+    <label for="selector-juegos">Elige un juego:</label>
+    <select id="selector-juegos">
+   <option value="Cyberpunk,59.99">Cyberpunk - $59.99</option>
+<option value="DS1,30">DS1 - $30</option>
+<option value="DS2,30">DS2 - $30</option>
+<option value="DS3,49">DS3 - $49</option>
+<option value="Plague Tale 1,24">Plague Tale 1 - $24</option>
+<option value="Plague Tale 2,24">Plague Tale 2 - $24</option>
+<option value="Skyrim,20">Skyrim - $20</option>
+<option value="Elden Ring,60">Elden Ring - $60</option>
+<option value="Metro 2033,14">Metro 2033 - $14</option>
+<option value="Metro Exodus,22">Metro Exodus - $22</option>
+<option value="God of War 4,40">God of War 4 - $40</option>
+<option value="God of War Ragnarok,40">God of War Ragnarok - $40</option>
+<option value="Sekiro,59">Sekiro - $59</option>
+<option value="The Last of Us Part 1,59">The Last of Us Part 1 - $59</option>
+<option value="The Last of Us Part 2,59">The Last of Us Part 2 - $59</option>
+<option value="Lies of P,35">Lies of P - $35</option>
+<option value="Astrobot,60">Astrobot - $60</option>
+<option value="Stray,14">Stray - $14</option>
+
+    </select>
+    <button onclick="agregarJuegoSeleccionado()">Agregar al carrito</button>
+
+    <h3>Carrito:</h3>
+    <ul id="carrito-lista"></ul>
+    <p id="total">Total: $0</p>
+    <button id="comprar-btn" onclick="comprar()">Comprar</button>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Mi Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    let carrito = [];
+    let total = 0;
+
+    function agregarJuegoSeleccionado() {
+      const select = document.getElementById("selector-juegos");
+      const [producto, precioStr] = select.value.split(",");
+      const precio = parseFloat(precioStr);
+
+      carrito.push({producto, precio});
+      total += precio;
+
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById("carrito-lista");
+      lista.innerHTML = "";
+      carrito.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.producto} - $${item.precio}`;
+        lista.appendChild(li);
+      });
+
+      document.getElementById("total").textContent = `Total: $${total}`;
+    }
+
+    function comprar() {
+      if (carrito.length === 0) {
+        alert("El carrito está vacío. Selecciona un juego primero.");
+        return;
+      }
+
+      let mensaje = "¡Compra realizada!\n\nProductos:\n";
+      carrito.forEach(item => {
+        mensaje += `${item.producto} - $${item.precio}\n`;
+      });
+      mensaje += `\nTotal: $${total}`;
+
+      alert(mensaje);
+
+      // Vaciar carrito
+      carrito = [];
+      total = 0;
+      actualizarCarrito();
+    }
+  </script>
+</body>
+</html>
+
